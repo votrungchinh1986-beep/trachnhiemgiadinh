@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Phiếu học tập tương tác Tiết 14 - Tìm hiểu trách nhiệm trong tổ chức cuộc sống gia đình">
+<title>Hành trình trách nhiệm gia đình - HĐTN-HN 12</title>
+<style>
+:root{
+  --ink:#18243a;--muted:#66738b;--paper:#f5f7fb;--white:#fff;
+  --navy:#172b4d;--blue:#2864dc;--blue2:#4f83f1;--cyan:#dff5f3;
+  --gold:#ffcc66;--gold2:#fff2cf;--green:#16865d;--green-bg:#e7f7ef;
+  --red:#bd3b4a;--red-bg:#fff0f1;--purple:#7655d8;--purple-bg:#f1edff;
+  --line:#e2e8f1;--shadow:0 14px 42px rgba(25,44,80,.09);--radius:22px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 10% 0%,#e6f0ff 0,transparent 30%),radial-gradient(circle at 100% 10%,#e8faf5 0,transparent 28%),var(--paper);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);line-height:1.5}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.app{max-width:1050px;margin:0 auto;padding:24px 18px 56px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;color:#4e5c75;font-size:.88rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.brand{display:flex;align-items:center;gap:9px}.brand-mark{width:35px;height:35px;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:1.1rem}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{background:#fff;border:1px solid var(--line);padding:6px 10px;border-radius:999px;font-size:.75rem;letter-spacing:0;text-transform:none;color:#59677f;font-weight:700}
+.hero{background:linear-gradient(125deg,#152747 0%,#254a80 64%,#267f84 100%);color:#fff;padding:30px;border-radius:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.07)}.hero:before{width:260px;height:260px;right:-70px;top:-130px}.hero:after{width:150px;height:150px;right:120px;bottom:-105px}
+.hero-inner{position:relative;z-index:1;max-width:760px}.eyebrow{color:#b7d9ff;font-weight:800;font-size:.8rem;letter-spacing:.13em;text-transform:uppercase}.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin:10px 0 12px;letter-spacing:-.035em}.hero p{color:#e3ecfa;margin:0;max-width:720px}.hero-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}.hero-meta span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:7px 11px;border-radius:999px;font-size:.82rem;font-weight:700}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(20px,4vw,32px);margin-top:20px}
+.panel h2{margin:0 0 8px;font-size:1.45rem;letter-spacing:-.02em}.sub{color:var(--muted);margin:0 0 22px}
+.field-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}.field label{display:block;font-weight:800;font-size:.9rem;margin:0 0 7px}.field input,.field select,.field textarea{width:100%;border:1.5px solid #d9e1ed;border-radius:13px;padding:12px 13px;background:#fbfcff;color:var(--ink);outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(40,100,220,.12)}.field textarea{min-height:86px;resize:vertical}
+.note{padding:12px 14px;border-radius:13px;background:#f2f7ff;color:#435676;font-size:.88rem;margin:16px 0 20px;border:1px solid #e0eaff}.note strong{color:#243c66}
+.btn{border:0;border-radius:13px;padding:12px 18px;font-weight:850;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .15s,filter .15s}.btn:hover{filter:brightness(1.04);transform:translateY(-1px)}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}.btn-primary{background:linear-gradient(110deg,var(--blue),#477deb);color:#fff;box-shadow:0 8px 18px rgba(40,100,220,.2)}.btn-dark{background:var(--navy);color:#fff}.btn-light{background:#eef3fb;color:#2d4265}.btn-ghost{background:#fff;border:1px solid var(--line);color:#3a4b67}.btn-gold{background:linear-gradient(110deg,#ffd779,#ffbd55);color:#51380c}.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.error{color:var(--red);font-size:.86rem;font-weight:700;margin-top:10px;min-height:1.2em}
+.progress-wrap{margin:20px 0 14px}.progress-top{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:.85rem;color:var(--muted);font-weight:800;margin-bottom:8px}.progress{height:10px;background:#e8edf5;border-radius:999px;overflow:hidden}.progress>span{height:100%;display:block;background:linear-gradient(90deg,#3d72e5,#25a58d);border-radius:999px;transition:width .3s}
+.stage-kicker{display:flex;align-items:center;gap:10px;color:var(--blue);font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.11em}.stage-icon{width:52px;height:52px;border-radius:17px;background:var(--purple-bg);display:grid;place-items:center;font-size:1.6rem;margin-bottom:16px}.stage-points{display:inline-flex;padding:7px 11px;background:var(--gold2);border-radius:999px;color:#78510c;font-size:.82rem;font-weight:850;margin-top:8px}
+.stage-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:20px 0}.stage-tile{background:#f7f9fd;border:1px solid var(--line);border-radius:14px;padding:11px 8px;text-align:center}.stage-tile .n{width:27px;height:27px;margin:0 auto 6px;border-radius:9px;background:#e7edfa;color:#31518b;display:grid;place-items:center;font-weight:900;font-size:.8rem}.stage-tile b{display:block;font-size:.76rem;line-height:1.25}.stage-tile small{color:var(--muted);font-size:.7rem}
+.question-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}.q-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);font-weight:900}.q-points{white-space:nowrap;padding:7px 11px;border-radius:999px;background:var(--gold2);color:#80570e;font-size:.82rem;font-weight:900}.question-title{font-size:clamp(1.18rem,2.8vw,1.55rem);line-height:1.35;margin:12px 0 8px;letter-spacing:-.02em}.question-help{margin:0 0 18px;color:var(--muted);font-size:.9rem}
+.options{display:grid;gap:10px}.option{width:100%;text-align:left;display:flex;align-items:flex-start;gap:12px;border:1.5px solid #e0e6f0;border-radius:15px;padding:13px 14px;background:#fff;color:var(--ink);transition:.15s}.option:hover{border-color:#9bb6ec;background:#f9fbff}.option.selected{border-color:var(--blue);background:#f0f5ff;box-shadow:0 0 0 3px rgba(40,100,220,.08)}.option .marker{width:25px;height:25px;flex:0 0 25px;border-radius:8px;border:1.5px solid #c8d2e2;display:grid;place-items:center;color:#6c7b93;font-size:.75rem;font-weight:900;background:#fff}.option.selected .marker{background:var(--blue);border-color:var(--blue);color:#fff}.option-text{font-weight:650;font-size:.95rem;padding-top:1px}.option:disabled{cursor:default}
+.feedback{margin-top:18px;border-radius:16px;padding:16px;border:1px solid var(--line);background:#f8faff}.feedback.good{background:var(--green-bg);border-color:#bfe8d2}.feedback.bad{background:var(--red-bg);border-color:#f1c6cb}.feedback h3{margin:0 0 6px;font-size:1rem}.feedback p{margin:5px 0;color:#43516b;font-size:.9rem}.feedback .correct-answer{font-weight:800;color:var(--ink)}.feedback-list{padding-left:18px;margin:8px 0 0;font-size:.86rem;color:#526079}.feedback-list li{margin:4px 0}
+.summary-strip{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}.metric{flex:1;min-width:120px;background:#f5f8fd;border:1px solid var(--line);padding:14px;border-radius:15px}.metric strong{display:block;font-size:1.35rem;color:var(--navy)}.metric span{font-size:.78rem;color:var(--muted);font-weight:700}
+.callout{background:linear-gradient(110deg,#fff8e6,#fff);border:1px solid #f5e0ab;padding:15px;border-radius:15px;color:#624915;font-size:.9rem;margin:16px 0}
+.commit-options{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:10px 0 18px}.commit-choice{border:1.5px solid #e0e6f0;border-radius:13px;padding:11px 12px;display:flex;gap:9px;align-items:center;background:#fff;font-size:.9rem;font-weight:700;cursor:pointer}.commit-choice.selected{border-color:var(--blue);background:#f0f5ff}.commit-choice input{accent-color:var(--blue)}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;margin-top:16px}table{border-collapse:collapse;width:100%;min-width:580px;font-size:.85rem}th,td{padding:10px 11px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:#f3f6fb;color:#52617b;font-size:.78rem}tr:last-child td{border-bottom:0}.status-ok{color:var(--green);font-weight:850}.status-no{color:var(--red);font-weight:850}
+.result-hero{background:linear-gradient(130deg,#1c3154,#265d82);color:#fff;border-radius:19px;padding:22px}.result-hero .big-score{font-size:clamp(2.7rem,7vw,4rem);font-weight:950;line-height:1;letter-spacing:-.04em;margin:10px 0}.result-hero p{color:#dce9f6;margin:6px 0}.badge-award{display:inline-flex;align-items:center;gap:8px;background:rgba(255,211,121,.17);border:1px solid rgba(255,211,121,.35);color:#ffe2a1;border-radius:999px;padding:7px 12px;font-weight:850;font-size:.85rem}
+.smallprint{font-size:.8rem;color:var(--muted);margin-top:14px}
+.hidden{display:none!important}
+#print-report{display:none}
+@media(max-width:700px){.app{padding:14px 11px 36px}.hero{padding:23px 20px;border-radius:22px}.field-grid{grid-template-columns:1fr}.stage-grid{grid-template-columns:repeat(2,1fr)}.commit-options{grid-template-columns:1fr}.topline{align-items:flex-start;flex-direction:column}.btn-row .btn{flex:1}}
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff!important;color:#111!important;font-size:10.5pt}
+  body *{visibility:hidden!important}
+  #print-report,#print-report *{visibility:visible!important}
+  #print-report{display:block!important;position:absolute;left:0;top:0;width:100%;font-family:Arial,sans-serif;color:#111}
+  #print-report h1{font-size:19pt;margin:0 0 5px;text-align:center}
+  #print-report h2{font-size:13pt;margin:18px 0 7px;border-bottom:1px solid #888;padding-bottom:4px}
+  #print-report p{margin:4px 0}
+  #print-report .print-meta{display:grid;grid-template-columns:1fr 1fr;gap:5px 20px;margin:14px 0;padding:10px;border:1px solid #aaa}
+  #print-report table{min-width:0;width:100%;font-size:8.5pt;border-collapse:collapse;page-break-inside:auto}
+  #print-report th,#print-report td{border:1px solid #aaa;padding:5px;vertical-align:top}
+  #print-report th{background:#eee!important;color:#111}
+  #print-report tr{page-break-inside:avoid}
+  #print-report .print-box{border:1px solid #aaa;padding:10px;margin:8px 0}
+  #print-report .print-footer{text-align:center;margin-top:24px;font-style:italic;font-size:9pt}
+  #print-report .muted{color:#444}
+}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <div class="topline">
+    <div class="brand"><span class="brand-mark">✦</span><span>HĐTN-HN 12 · Chủ đề 4</span></div>
+    <div class="chips"><span class="chip">Tiết 14</span><span class="chip">Dùng ngoại tuyến</span><span class="chip">Không giới hạn thời gian</span></div>
+  </div>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Hành trình thử thách · 5 chặng</div>
+      <h1>Trách nhiệm bắt đầu từ những điều nhỏ bé</h1>
+      <p>Khám phá cách chia sẻ, tổ chức cuộc sống gia đình, quản lí chi tiêu và sử dụng công cụ số có trách nhiệm. Mỗi lựa chọn là một bước tiến để trở thành thành viên chủ động, biết quan tâm và sẻ chia.</p>
+      <div class="hero-meta"><span>18 câu hỏi tương tác</span><span>Thang điểm 100</span><span>Cam kết hành động 7 ngày</span></div>
+    </div>
+  </section>
+  <main id="screen"></main>
+</div>
+<div id="print-report"></div>
+<script>
+const stages = [
+  {title:"Chủ động giải quyết vấn đề gia đình",icon:"🤝",points:20,desc:"Nhận diện vấn đề, lắng nghe và cùng tìm cách giải quyết phù hợp."},
+  {title:"Tôi có trách nhiệm",icon:"🏡",points:30,desc:"Xác định việc làm vừa sức, biết phối hợp và quan tâm đến các thành viên."},
+  {title:"Quản lí thu nhập và chi tiêu",icon:"🧮",points:20,desc:"Phân tích ngân sách giả định và cân nhắc ưu tiên khi phát sinh chi phí."},
+  {title:"Sử dụng AI thông minh trong gia đình",icon:"🤖",points:15,desc:"Chọn ý tưởng AI phù hợp, nhận diện dữ liệu cần bảo vệ và vai trò kiểm tra của con người."},
+  {title:"Tôi chọn hành động",icon:"🎯",points:15,desc:"Lựa chọn phương án thiết thực và xây dựng cam kết của bản thân trong 7 ngày."}
+];
+const questions = [
+ {id:1,stage:0,points:5,type:"single",title:"Em đã nhận lời phụ mẹ chuẩn bị bữa tối, nhưng buổi học nhóm trực tuyến kéo dài hơn dự kiến. Cách xử lí nào thể hiện trách nhiệm và sự chủ động nhất?",opts:[
+  ["A","Tiếp tục học nhóm, không cần báo vì mẹ có thể tự xoay xở.","Không thông báo khiến người thân khó sắp xếp và không thể hiện sự phối hợp."],
+  ["B","Báo mẹ sớm, chia sẻ thời gian bị kéo dài và thống nhất giờ làm bù hoặc việc thay thế.","Chủ động thông tin, chia sẻ khó khăn và thống nhất phương án khả thi giúp giữ lời hứa hoặc khắc phục phần việc."],
+  ["C","Nói rằng việc nhà không quan trọng bằng việc học nên không cần thực hiện.","Cách nói phủ nhận trách nhiệm và không tìm phương án dung hòa giữa học tập với việc nhà."],
+  ["D","Đợi mẹ nhắc rồi mới giải thích rằng em đã bận học.","Chờ bị nhắc mới phản hồi là thụ động; tình huống cần được trao đổi từ khi biết lịch thay đổi."]],correct:["B"],explain:"Nên trao đổi sớm, nêu sự việc cụ thể, lắng nghe và thống nhất việc thay thế hoặc thời gian hoàn thành."},
+ {id:2,stage:0,points:5,type:"multi",title:"Khi trao đổi về một bất đồng trong gia đình, những cách làm nào thể hiện sự lắng nghe và hướng đến giải pháp? (Chọn tất cả đáp án phù hợp.)",opts:[
+  ["A","Mô tả sự việc cụ thể, tránh quy kết hoặc gán lỗi cho người khác.","Mô tả sự việc giúp các bên tập trung vào vấn đề thay vì công kích cá nhân."],
+  ["B","Chia sẻ khó khăn và nhu cầu của mình bằng lời nói tôn trọng.","Nêu nhu cầu rõ ràng, tôn trọng giúp các thành viên hiểu hoàn cảnh của nhau."],
+  ["C","Lắng nghe ý kiến của người thân và cùng thống nhất phương án.","Lắng nghe và thống nhất là bước quan trọng để chọn giải pháp hai bên có thể thực hiện."],
+  ["D","Nhắc lại lỗi cũ của người thân để chứng minh mình luôn đúng.","Khơi lại lỗi cũ dễ làm căng thẳng tăng lên và không giúp giải quyết sự việc hiện tại."]],correct:["A","B","C"],explain:"Cách trao đổi phù hợp gồm nêu sự việc, chia sẻ khó khăn, lắng nghe và cùng thống nhất. Không quy kết cá nhân."},
+ {id:3,stage:0,points:5,type:"tf",title:"Khi bố mẹ muốn em ôn kiểm tra còn em muốn tham gia hoạt động ngoại khóa, hai bên nên lắng nghe lí do của nhau và thống nhất phương án phù hợp với thời gian, trách nhiệm học tập.",correct:["true"],explain:"Hai bên đều có lí do; trao đổi tôn trọng và thống nhất lịch hoặc điều kiện tham gia là cách giải quyết phù hợp."},
+ {id:4,stage:0,points:5,type:"single",title:"Gia đình phát sinh khoản sửa xe chưa có trong kế hoạch tháng. Việc nên làm là gì?",opts:[
+  ["A","Tự ý vay tiền hoặc mua trả góp ngay mà không trao đổi với người liên quan.","Quyết định tài chính khi chưa trao đổi có thể tạo thêm áp lực và thiếu cân nhắc."],
+  ["B","Cắt ngay khoản ăn uống và y tế để đủ tiền sửa xe.","Ăn uống và y tế là những nhu cầu thiết yếu, không nên cắt giảm tùy tiện."],
+  ["C","Cùng gia đình xác định mức độ cần thiết, xem khoản có thể điều chỉnh và thống nhất phương án.","Cách này vừa ưu tiên nhu cầu đi lại cần thiết, vừa bảo đảm các thành viên cùng cân nhắc ngân sách."],
+  ["D","Bỏ qua việc sửa xe dù phương tiện cần thiết cho đi học, đi làm.","Bỏ qua nhu cầu thiết yếu có thể ảnh hưởng đến sinh hoạt và công việc của gia đình."]],correct:["C"],explain:"Khi có chi phí phát sinh, cần trao đổi, xác định mức độ cần thiết và điều chỉnh khoản chi có thể cân nhắc."},
+ {id:5,stage:1,points:5,type:"single",title:"Việc làm nào thể hiện em chủ động chia sẻ việc nhà phù hợp với khả năng và lịch học?",opts:[
+  ["A","Chọn một việc vừa sức, thống nhất thời điểm thực hiện và báo trước khi lịch thay đổi.","Việc làm cụ thể, vừa sức và có phối hợp thể hiện trách nhiệm thực tế."],
+  ["B","Nhận tất cả việc nhà để người khác không phải làm gì.","Trách nhiệm không đồng nghĩa làm thay mọi người; cần phân chia phù hợp khả năng."],
+  ["C","Chỉ làm khi người thân nhắc nhiều lần.","Chờ nhắc mới làm chưa thể hiện tính chủ động."],
+  ["D","Từ chối mọi việc nhà trong thời gian ôn tập.","Có thể điều chỉnh khối lượng, thời gian nhưng không nên mặc nhiên từ chối mọi sự chia sẻ."]],correct:["A"],explain:"Trách nhiệm cần phù hợp khả năng và thời gian; việc đã nhận nên được thống nhất và thực hiện chủ động."},
+ {id:6,stage:1,points:5,type:"multi",title:"Những biểu hiện nào thuộc trách nhiệm của bản thân trong tổ chức cuộc sống gia đình? (Chọn tất cả đáp án phù hợp.)",opts:[
+  ["A","Chia sẻ việc nhà phù hợp với sức khỏe, khả năng và thời gian.","Chia sẻ việc nhà là một phương diện trách nhiệm được nêu trong bài học."],
+  ["B","Quan tâm, chăm sóc người thân bằng việc làm phù hợp.","Quan tâm và chăm sóc người thân là một phương diện trách nhiệm."],
+  ["C","Quản lí thời gian học tập, sinh hoạt và phối hợp khi cần.","Quản lí thời gian và phối hợp giúp tổ chức sinh hoạt gia đình hài hòa."],
+  ["D","Cho rằng việc tổ chức gia đình hoàn toàn là trách nhiệm của bố mẹ.","Mỗi thành viên đều có thể đóng góp phù hợp; không nên đẩy toàn bộ trách nhiệm cho người khác."]],correct:["A","B","C"],explain:"Trách nhiệm thể hiện qua chia sẻ việc nhà, quan tâm người thân và quản lí thời gian; còn có giao tiếp và sử dụng tài nguyên hợp lí."},
+ {id:7,stage:1,points:5,type:"single",title:"Em đã thống nhất phụ trách một việc nhà vào vài buổi trong tuần. Đến hôm đó, lịch học thay đổi. Em nên làm gì?",opts:[
+  ["A","Im lặng bỏ qua vì lịch học quan trọng hơn.","Không thông báo khiến người thân không kịp sắp xếp lại công việc."],
+  ["B","Báo sớm, đề xuất đổi thời điểm hoặc nhận một việc thay thế phù hợp.","Thông báo và điều chỉnh có trao đổi thể hiện trách nhiệm và phối hợp."],
+  ["C","Yêu cầu người thân luôn tự làm thay mình.","Đây là chuyển trách nhiệm cho người khác mà không cùng tìm giải pháp."],
+  ["D","Đợi đến cuối tuần mới giải thích.","Thông tin quá muộn có thể khiến việc chung bị ảnh hưởng."]],correct:["B"],explain:"Khi điều kiện thay đổi, cần thông báo sớm và cùng điều chỉnh cách thực hiện."},
+ {id:8,stage:1,points:5,type:"tf",title:"Có trách nhiệm với gia đình không có nghĩa là làm thay tất cả mọi người; mỗi thành viên nên đóng góp phù hợp khả năng và biết phối hợp.",correct:["true"],explain:"Bài học nhấn mạnh sự chủ động đóng góp phù hợp khả năng, đồng thời biết quan tâm và phối hợp."},
+ {id:9,stage:1,points:5,type:"single",title:"Cách nào giúp em quản lí thời gian học tập và sinh hoạt có trách nhiệm hơn?",opts:[
+  ["A","Lập thời gian biểu có học tập, nghỉ ngơi và việc nhà; trao đổi khi cần thay đổi.","Cách này cân đối các nhiệm vụ và giúp các thành viên chủ động phối hợp."],
+  ["B","Dành toàn bộ thời gian rảnh cho giải trí, việc nhà để người khác tự sắp xếp.","Cách làm chưa cân đối và bỏ qua phần trách nhiệm của bản thân."],
+  ["C","Không cần lên kế hoạch vì lịch sinh hoạt thường thay đổi.","Lịch có thể thay đổi nhưng kế hoạch vẫn giúp chủ động và có thể điều chỉnh."],
+  ["D","Chỉ học tập, không cần quan tâm đến thời gian sinh hoạt chung.","Tổ chức cuộc sống gia đình cần cân nhắc cả học tập, sinh hoạt và phối hợp."]],correct:["A"],explain:"Quản lí thời gian cần cân đối học tập, nghỉ ngơi, sinh hoạt và việc đã nhận; kế hoạch có thể điều chỉnh khi cần."},
+ {id:10,stage:1,points:5,type:"single",title:"Giá trị quan trọng của gia đình đối với mỗi cá nhân và xã hội được thể hiện rõ nhất ở phương án nào?",opts:[
+  ["A","Chỉ là nơi đáp ứng các nhu cầu vật chất hằng ngày.","Gia đình không chỉ có vai trò vật chất mà còn là môi trường tình cảm, giáo dục và hỗ trợ."],
+  ["B","Là nơi gắn bó, yêu thương, hỗ trợ và góp phần hình thành trách nhiệm của mỗi người.","Gia đình có ý nghĩa với cá nhân qua tình yêu thương, hỗ trợ và với xã hội qua việc hình thành những giá trị, trách nhiệm."],
+  ["C","Là nơi mọi thành viên luôn phải có cùng suy nghĩ và sở thích.","Các thành viên có thể khác biệt; điều quan trọng là tôn trọng, lắng nghe và phối hợp."],
+  ["D","Chỉ có ý nghĩa khi gia đình không phát sinh bất đồng.","Bất đồng có thể nảy sinh; cách trao đổi và cùng giải quyết mới góp phần giữ gìn gắn kết."]],correct:["B"],explain:"Gia đình là môi trường gắn bó, yêu thương, hỗ trợ và góp phần hình thành nhân cách, trách nhiệm của cá nhân và xã hội."},
+ {id:11,stage:2,points:6,type:"single",title:"Theo dữ liệu giả định, tổng các khoản đã phân bổ ban đầu là bao nhiêu?\nĂn uống 6 triệu; nhà ở – điện nước 3 triệu; học tập 3 triệu; đi lại 2 triệu; y tế 1 triệu; giải trí – mua sắm 3 triệu; tiết kiệm 2 triệu đồng.",opts:[
+  ["A","19.000.000 đồng","Cộng các khoản được 20.000.000 đồng, không phải 19.000.000 đồng."],
+  ["B","20.000.000 đồng","6 + 3 + 3 + 2 + 1 + 3 + 2 = 20 (triệu đồng)."],
+  ["C","21.500.000 đồng","21.500.000 đồng là tổng sau khi cộng thêm khoản sửa xe phát sinh 1.500.000 đồng."],
+  ["D","18.500.000 đồng","Tổng các khoản đã cho là 20.000.000 đồng."]],correct:["B"],explain:"Tổng chi ban đầu là 20.000.000 đồng, bằng mức thu nhập giả định 20.000.000 đồng/tháng."},
+ {id:12,stage:2,points:7,type:"multi",title:"Gia đình cần thêm 1.500.000 đồng để sửa xe. Theo phương án gợi ý trong bài học, những khoản nào có thể cân nhắc điều chỉnh trong tháng này để vẫn ưu tiên nhu cầu thiết yếu? (Chọn tất cả đáp án phù hợp.)",opts:[
+  ["A","Giảm 1.000.000 đồng từ giải trí – mua sắm.","Đây là khoản có thể cân nhắc giảm trong tháng để dành nguồn lực cho sửa xe."],
+  ["B","Giảm 500.000 đồng từ tiết kiệm trong tháng này.","Có thể tạm điều chỉnh một phần tiết kiệm trong tháng, sau khi cân nhắc các nhu cầu thiết yếu."],
+  ["C","Cắt giảm tùy tiện khoản ăn uống thiết yếu.","Không nên cắt giảm tùy tiện nhu cầu ăn uống thiết yếu."],
+  ["D","Bỏ khoản y tế dù gia đình đang có nhu cầu cần thiết.","Không nên loại bỏ nhu cầu y tế cần thiết để xử lí khoản phát sinh."]],correct:["A","B"],explain:"Phương án gợi ý giảm 1.000.000 đồng từ giải trí – mua sắm và 500.000 đồng từ tiết kiệm trong tháng này."},
+ {id:13,stage:2,points:7,type:"single",title:"Phương án nào cân đối khoản sửa xe 1.500.000 đồng mà vẫn giữ tổng phân bổ trong mức thu nhập 20.000.000 đồng và ưu tiên các khoản thiết yếu?",opts:[
+  ["A","Giảm 1.000.000 đồng ăn uống và 500.000 đồng y tế.","Cách này cắt vào các khoản thiết yếu, không phải phương án ưu tiên trong bài học."],
+  ["B","Giảm 1.000.000 đồng giải trí – mua sắm và 500.000 đồng tiết kiệm.","Tổng mức giảm là 1.500.000 đồng, vừa đủ bù khoản sửa xe và hạn chế ảnh hưởng nhu cầu thiết yếu."],
+  ["C","Giảm 1.500.000 đồng học tập.","Cắt giảm toàn bộ khoản này có thể ảnh hưởng nhu cầu học tập thiết yếu."],
+  ["D","Giữ nguyên mọi khoản và cộng thêm 1.500.000 đồng sửa xe.","Tổng phân bổ sẽ thành 21.500.000 đồng, vượt thu nhập giả định 1.500.000 đồng."]],correct:["B"],explain:"Sau điều chỉnh, tổng chi vẫn là 20.000.000 đồng: giảm 1.000.000 đồng giải trí – mua sắm và 500.000 đồng tiết kiệm để chi sửa xe."},
+ {id:14,stage:3,points:5,type:"single",title:"Gia đình muốn phân chia việc nhà dựa trên thời gian rảnh của từng người. Ý tưởng công cụ AI nào phù hợp nhất?",opts:[
+  ["A","Trợ lý gợi ý lịch phân chia việc nhà theo thời gian rảnh.","Công cụ này hỗ trợ đúng nhiệm vụ: sắp xếp công việc dựa trên thời gian và khả năng của các thành viên."],
+  ["B","Trợ lý phân loại khoản chi giả định và gợi ý cân đối ngân sách.","Công cụ này hỗ trợ quản lí chi tiêu, không trực tiếp giải quyết việc phân chia việc nhà."],
+  ["C","Trợ lý nhắc lịch sinh hoạt và hoạt động kết nối.","Công cụ này nhắc lịch, nhưng không phải ý tưởng phù hợp nhất để phân công việc nhà theo thời gian rảnh."],
+  ["D","Công cụ tự quyết định ai phải làm mọi việc mà không cần hỏi các thành viên.","Công cụ không nên tự quyết định thay các thành viên; cần cân nhắc khả năng và sự đồng thuận."]],correct:["A"],explain:"Trợ lý gợi ý lịch phân chia việc nhà có thể dùng danh sách việc, thời gian rảnh giả định và thời lượng dự kiến để đề xuất lịch."},
+ {id:15,stage:3,points:5,type:"multi",title:"Khi thử nghiệm ý tưởng AI hỗ trợ tổ chức cuộc sống gia đình, dữ liệu nào phù hợp để nhập? (Chọn tất cả đáp án an toàn và phù hợp.)",opts:[
+  ["A","Lịch rảnh giả định và danh sách công việc nhà không gắn với danh tính thật.","Dữ liệu giả định, không định danh phù hợp để thử nghiệm gợi ý lịch."],
+  ["B","Các khoản thu – chi giả định, không phải số liệu tài chính thật của gia đình.","Dữ liệu tài chính giả định có thể dùng để thử nghiệm phân loại và cân đối chi tiêu."],
+  ["C","Mật khẩu, số tài khoản ngân hàng hoặc mã xác thực cá nhân.","Đây là thông tin bảo mật, không được đưa vào công cụ AI."],
+  ["D","Thông tin sức khỏe riêng tư của người thân khi không cần thiết cho nhiệm vụ.","Thông tin sức khỏe là dữ liệu riêng tư; không nhập dữ liệu này vào công cụ AI cho nhiệm vụ nêu trên."]],correct:["A","B"],explain:"Chỉ nên dùng dữ liệu giả định, tối thiểu và không định danh; không nhập thông tin cá nhân, sức khỏe hoặc tài chính thật."},
+ {id:16,stage:3,points:5,type:"tf",title:"AI có thể đưa ra gợi ý sai hoặc thiếu công bằng; con người cần kiểm tra tính đúng đắn, phù hợp và đưa ra quyết định cuối cùng.",correct:["true"],explain:"AI chỉ hỗ trợ gợi ý. Con người phải kiểm tra kết quả, cân nhắc hoàn cảnh và chịu trách nhiệm về quyết định cuối cùng."},
+ {id:17,stage:4,points:7,type:"single",title:"Phương án nào là một cam kết 7 ngày cụ thể, vừa sức và có thể tự theo dõi?",opts:[
+  ["A","Em sẽ quan tâm gia đình nhiều hơn khi có thời gian.","Ý định còn chung chung, chưa xác định việc làm, thời gian hoặc số lần."],
+  ["B","Trong 7 ngày tới, em sẽ dọn bàn ăn sau bữa tối 4 lần; nếu lịch học thay đổi, em sẽ báo và thống nhất thời điểm khác.","Hành động cụ thể, có thời hạn, số lần và cách điều chỉnh khi lịch thay đổi."],
+  ["C","Em sẽ làm tất cả việc nhà mỗi ngày mà không cần ai hỗ trợ.","Cam kết quá rộng, khó phù hợp khả năng và không thể hiện sự phối hợp."],
+  ["D","Em sẽ cố gắng không để người thân phải nhắc bất cứ việc gì.","Mục tiêu chưa chỉ rõ hành động nào và cách xác định đã hoàn thành."]],correct:["B"],explain:"Một cam kết tốt cần cụ thể, vừa sức, có thời gian/số lần dự kiến và có thể điều chỉnh phù hợp."},
+ {id:18,stage:4,points:8,type:"single",title:"Sau khi lập kế hoạch, em nhận thấy một ngày đã chọn để làm việc nhà trùng lịch học đột xuất. Cách xử lí nào phù hợp với tinh thần trách nhiệm?",opts:[
+  ["A","Bỏ luôn kế hoạch vì đã không làm đúng ngày dự kiến.","Một thay đổi lịch không có nghĩa phải từ bỏ toàn bộ kế hoạch."],
+  ["B","Không nói với ai và đánh dấu như thể đã hoàn thành.","Ghi nhận không trung thực không giúp em tự đánh giá và điều chỉnh trách nhiệm."],
+  ["C","Báo với người liên quan, thống nhất thời điểm thay thế và tiếp tục thực hiện trong khả năng.","Chủ động trao đổi và điều chỉnh hợp lí giúp duy trì cam kết một cách thực tế, trung thực."],
+  ["D","Yêu cầu người thân làm thay toàn bộ phần việc đã nhận.","Chuyển toàn bộ phần việc cho người khác không thể hiện sự chủ động tìm phương án."]],correct:["C"],explain:"Kế hoạch cần linh hoạt khi lịch thay đổi; điều quan trọng là trao đổi, điều chỉnh và thực hiện trung thực."}
+];
+
+const screen = document.getElementById('screen');
+const state = {name:'',klass:'',stage:0,qIndex:0,view:'welcome',selected:[],feedback:false,practice:false,returnToFinal:false,reviewedWrong:[],records:{},commit:{category:'',action:'',when:'',times:'',outcome:'',backup:''}};
+const letters = ['A','B','C','D'];
+const esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const stageQs = i => questions.filter(q=>q.stage===i);
+const totalScore = () => Object.values(state.records).reduce((a,r)=>a+(r.score||0),0);
+const maxPossible = () => questions.reduce((a,q)=>a+q.points,0);
+const stageScore = i => stageQs(i).reduce((a,q)=>a+(state.records[q.id]?.score||0),0);
+const stageMax = i => stages[i].points;
+const earnedCount = () => Object.values(state.records).filter(r=>r.firstCorrect).length;
+const optionLabel = (q,vals) => {
+  if(q.type==='tf') return vals[0]==='true'?'Đúng':'Sai';
+  return (vals||[]).map(v=>{const o=q.opts.find(x=>x[0]===v);return o?`${v}. ${o[1]}`:v;}).join('; ') || 'Chưa chọn';
+};
+function renderWelcome(){
+ screen.innerHTML = `<section class="panel">
+  <h2>Bắt đầu hành trình</h2><p class="sub">Nhập thông tin để lưu vào phiếu kết quả cá nhân. Không cần cung cấp thông tin riêng tư hoặc số liệu thật của gia đình.</p>
+  <div class="field-grid">
+   <div class="field"><label for="studentName">Họ và tên học sinh *</label><input id="studentName" maxlength="90" placeholder="Nhập họ và tên của em" autocomplete="name"></div>
+   <div class="field"><label for="studentClass">Lớp *</label><select id="studentClass"><option value="">-- Chọn lớp --</option><option>12A6</option><option>12A9</option></select></div>
+  </div>
+  <div class="note"><strong>Cách tham gia:</strong> Hoàn thành 5 chặng, trả lời 18 câu hỏi. Mỗi câu có phản hồi và giải thích ngay sau khi kiểm tra. Câu trả lời sai có thể luyện lại; điểm chính thức được tính theo lượt đầu tiên. Cuối phiếu, em lập kế hoạch hành động trong 7 ngày.</div>
+  <div class="stage-grid">${stages.map((s,i)=>`<div class="stage-tile"><div class="n">${i+1}</div><b>${esc(s.title)}</b><small>${s.points} điểm</small></div>`).join('')}</div>
+  <div class="btn-row"><button class="btn btn-primary" id="beginBtn">🚀 Bắt đầu thử thách</button></div><div class="error" id="welcomeError"></div>
+ </section>`;
+}
+function renderStageIntro(){
+ const s=stages[state.stage];
+ screen.innerHTML=`<section class="panel">
+  <div class="stage-icon">${s.icon}</div><div class="stage-kicker">Chặng ${state.stage+1} / 5</div>
+  <h2>${esc(s.title)}</h2><p class="sub">${esc(s.desc)}</p>
+  <span class="stage-points">Tối đa ${s.points} điểm</span>
+  <div class="callout"><strong>Nhiệm vụ:</strong> ${esc(stageQs(state.stage).length)} câu hỏi. Đọc kĩ tình huống, chọn đáp án hoặc các đáp án phù hợp. Sau mỗi câu, em sẽ nhận được phản hồi và lời giải thích.</div>
+  <div class="progress-wrap"><div class="progress-top"><span>Tiến trình toàn phiếu</span><span>${questions.filter(q=>q.stage<state.stage).length}/18 câu</span></div><div class="progress"><span style="width:${questions.filter(q=>q.stage<state.stage).length/18*100}%"></span></div></div>
+  <div class="btn-row"><button class="btn btn-primary" id="startStageBtn">Vào chặng ${state.stage+1} →</button></div>
+ </section>`;
+}
+function renderQuestion(){
+ const q=questions[state.qIndex],s=stages[q.stage],record=state.records[q.id];
+ const qInStage=stageQs(q.stage).findIndex(x=>x.id===q.id)+1;
+ const typeText=q.type==='single'?'Chọn một đáp án':q.type==='multi'?'Chọn tất cả đáp án phù hợp':'Chọn Đúng hoặc Sai';
+ const progress=(state.qIndex)/questions.length*100;
+ let options='';
+ if(q.type==='tf'){
+   options=['true','false'].map((v,i)=>`<button class="option ${state.selected.includes(v)?'selected':''}" data-option="${v}" ${state.feedback?'disabled':''}><span class="marker">${i===0?'Đ':'S'}</span><span class="option-text">${v==='true'?'Đúng':'Sai'}</span></button>`).join('');
+ }else{
+   options=q.opts.map(o=>`<button class="option ${state.selected.includes(o[0])?'selected':''}" data-option="${o[0]}" ${state.feedback?'disabled':''}><span class="marker">${q.type==='multi'?(state.selected.includes(o[0])?'✓':'') : o[0]}</span><span class="option-text">${esc(o[1])}</span></button>`).join('');
+ }
+ let feedback='';
+ if(state.feedback){
+   const first=!!state.records[q.id]&&!state.practice;
+   const attemptCorrect=isCorrect(q,state.selected);
+   const correctLabels=q.type==='tf'?(q.correct[0]==='true'?'Đúng':'Sai'):optionLabel(q,q.correct);
+   const selectedExplanations=q.type==='tf'?'':q.opts.map(o=>`<li><b>${o[0]} · ${q.correct.includes(o[0])?'Đáp án đúng':'Chưa phù hợp'}:</b> ${esc(o[2])}</li>`).join('');
+   feedback=`<div class="feedback ${attemptCorrect?'good':'bad'}"><h3>${attemptCorrect?'✓ Em đã chọn đúng!':'↻ Em hãy xem lại lựa chọn.'}</h3><p>${esc(q.explain)}</p><p class="correct-answer">Đáp án đúng: ${esc(correctLabels)}</p>${selectedExplanations?`<p><strong>Giải thích từng lựa chọn:</strong></p><ul class="feedback-list">${selectedExplanations}</ul>`:''}${state.practice?`<p><strong>Lượt luyện tập:</strong> ${attemptCorrect?'Em đã chọn đúng ở lượt luyện tập.':'Em có thể thử lại để ghi nhớ.'} Điểm chính thức vẫn giữ theo lượt đầu tiên.</p>`:(!attemptCorrect?`<p>Em có thể luyện lại câu này. Điểm chính thức của câu được ghi nhận theo lượt đầu tiên.</p>`:`<p>Điểm chính thức lượt đầu: ${formatNum(state.records[q.id]?.score||0)}/${q.points} điểm.</p>`)}</div>`;
+ }
+ screen.innerHTML=`<section class="panel">
+  <div class="question-head"><div><div class="q-label">${s.icon} Chặng ${q.stage+1} · Câu ${qInStage}/${stageQs(q.stage).length}</div><div class="question-title">${esc(q.title).replace(/\n/g,'<br>')}</div><p class="question-help">${typeText} · ${q.points} điểm</p></div><span class="q-points">${q.points} điểm</span></div>
+  <div class="progress-wrap"><div class="progress-top"><span>Tiến trình toàn phiếu</span><span>Câu ${state.qIndex+1}/18</span></div><div class="progress"><span style="width:${Math.max(4,progress)}%"></span></div></div>
+  <div class="options">${options}</div>
+  ${state.feedback?feedback:`<div class="btn-row"><button class="btn btn-primary" id="checkAnswerBtn" ${state.selected.length?'':'disabled'}>Kiểm tra đáp án</button></div><div class="error" id="answerError">${q.type==='multi'?'Có thể chọn nhiều phương án.':''}</div>`}
+  ${state.feedback?`<div class="btn-row">${!isCorrect(q,state.selected)?`<button class="btn btn-light" id="retryBtn">↻ Luyện lại câu này</button>`:''}<button class="btn btn-primary" id="nextQuestionBtn">${state.qIndex===questions.length-1?'Hoàn thành 5 chặng':'Câu tiếp theo'} →</button></div>`:''}
+ </section>`;
+}
+function isCorrect(q,vals){
+ const a=[...vals].sort(),b=[...q.correct].sort();return a.length===b.length&&a.every((x,i)=>x===b[i]);
+}
+function calcScore(q,vals){
+ if(q.type!=='multi')return isCorrect(q,vals)?q.points:0;
+ const good=vals.filter(x=>q.correct.includes(x)).length;
+ const wrong=vals.filter(x=>!q.correct.includes(x)).length;
+ return Math.round(Math.max(0,(good-wrong)/q.correct.length*q.points)*100)/100;
+}
+function formatNum(n){return Number.isInteger(n)?String(n):n.toFixed(2).replace('.',',')}
+function submitAnswer(){
+ const q=questions[state.qIndex];
+ if(!state.selected.length){const e=document.getElementById('answerError');if(e)e.textContent='Em hãy chọn đáp án trước khi kiểm tra.';return;}
+ if(!state.practice&&!state.records[q.id]){
+   const sc=calcScore(q,state.selected);
+   state.records[q.id]={selected:[...state.selected],score:sc,firstCorrect:isCorrect(q,state.selected),attempts:1};
+ }else if(state.records[q.id]){state.records[q.id].attempts=(state.records[q.id].attempts||1)+1;}
+ state.feedback=true;renderQuestion();
+}
+function renderStageSummary(){
+ const score=stageScore(state.stage),possible=stageMax(state.stage),s=stages[state.stage];
+ screen.innerHTML=`<section class="panel"><div class="stage-icon">🏁</div><div class="stage-kicker">Hoàn thành chặng ${state.stage+1}</div><h2>${esc(s.title)}</h2><p class="sub">Em đã hoàn thành các câu hỏi của chặng này. Hãy xem lại kết quả trước khi sang thử thách tiếp theo.</p>
+ <div class="summary-strip"><div class="metric"><strong>${formatNum(score)}/${possible}</strong><span>Điểm chặng</span></div><div class="metric"><strong>${stageQs(state.stage).filter(q=>state.records[q.id]?.firstCorrect).length}/${stageQs(state.stage).length}</strong><span>Câu đúng ngay lượt đầu</span></div></div>
+ <div class="progress"><span style="width:${(state.stage+1)/5*100}%"></span></div>
+ <div class="btn-row"><button class="btn btn-primary" id="nextStageBtn">${state.stage===4?'Lập cam kết hành động':'Sang chặng tiếp theo'} →</button></div></section>`;
+}
+function renderCommit(){
+ screen.innerHTML=`<section class="panel">
+  <div class="stage-icon">🎯</div><div class="stage-kicker">Thử thách cuối · Vận dụng</div><h2>Kế hoạch hành động 7 ngày của em</h2>
+  <p class="sub">Từ những điều vừa học, hãy chọn một việc làm cụ thể, vừa sức và có thể thực hiện trong 7 ngày tới. Đây là kế hoạch dự kiến; phiếu không yêu cầu nhật kí cập nhật sau 7 ngày.</p>
+  <div class="callout"><strong>Gợi ý lựa chọn:</strong> Chủ động làm một công việc nhà · Sắp xếp thời gian học tập và sinh hoạt · Hỗ trợ người thân · Tiết kiệm điện, nước · Tự quản lí một khoản chi cá nhân.</div>
+  <div class="field"><label>1. Lĩnh vực hành động *</label></div>
+  <div class="commit-options">${['Chủ động làm một công việc nhà','Sắp xếp thời gian học tập và sinh hoạt','Hỗ trợ người thân','Tiết kiệm điện, nước','Tự quản lí một khoản chi cá nhân'].map((v,i)=>`<label class="commit-choice ${state.commit.category===v?'selected':''}"><input type="radio" name="commitCategory" value="${esc(v)}" ${state.commit.category===v?'checked':''}>${esc(v)}</label>`).join('')}</div>
+  <div class="field-grid">
+   <div class="field"><label for="commitAction">2. Việc cụ thể em sẽ làm *</label><input id="commitAction" maxlength="180" value="${esc(state.commit.action)}" placeholder="Ví dụ: dọn bàn ăn sau bữa tối"></div>
+   <div class="field"><label for="commitWhen">3. Thời điểm thực hiện *</label><input id="commitWhen" maxlength="120" value="${esc(state.commit.when)}" placeholder="Ví dụ: sau bữa tối, các ngày thứ 2, 4, 6"></div>
+   <div class="field"><label for="commitTimes">4. Số lần dự kiến trong 7 ngày *</label><select id="commitTimes"><option value="">-- Chọn số lần --</option>${[1,2,3,4,5,6,7].map(n=>`<option value="${n}" ${String(state.commit.times)===String(n)?'selected':''}>${n} lần</option>`).join('')}</select></div>
+   <div class="field"><label for="commitOutcome">5. Kết quả em mong đợi *</label><input id="commitOutcome" maxlength="180" value="${esc(state.commit.outcome)}" placeholder="Ví dụ: chủ động chia sẻ việc nhà, đúng hẹn"></div>
+  </div>
+  <div class="field" style="margin-top:14px"><label for="commitBackup">6. Nếu lịch thay đổi, em sẽ điều chỉnh thế nào? (không bắt buộc)</label><textarea id="commitBackup" maxlength="240" placeholder="Ví dụ: báo trước và thống nhất thời điểm khác">${esc(state.commit.backup)}</textarea></div>
+  <div class="note"><strong>Lưu ý:</strong> Không cần ghi thu nhập, thông tin sức khỏe, hình ảnh hoặc thông tin riêng tư của gia đình. Chỉ mô tả hành động vừa sức của bản thân.</div>
+  <div class="btn-row"><button class="btn btn-primary" id="finishBtn">Hoàn thành phiếu và xem kết quả ✨</button></div><div class="error" id="commitError"></div>
+ </section>`;
+}
+function badgeFor(score){
+ if(score>=90)return {name:'Người kiến tạo yêu thương',emoji:'🏆',msg:'Em đã thể hiện sự hiểu biết vững vàng và biết cân nhắc trách nhiệm trong nhiều tình huống.'};
+ if(score>=75)return {name:'Người biết sẻ chia',emoji:'🌟',msg:'Em đã nắm được nhiều nội dung quan trọng. Hãy tiếp tục biến sự quan tâm thành hành động cụ thể.'};
+ if(score>=50)return {name:'Người đang trưởng thành',emoji:'🌱',msg:'Em đã có những bước đầu tích cực. Hãy xem lại phần giải thích và thực hiện cam kết vừa sức.'};
+ return {name:'Chiến binh bắt đầu hành trình',emoji:'💪',msg:'Mỗi câu hỏi là một cơ hội học thêm. Điều quan trọng là hiểu bài, điều chỉnh và bắt đầu từ một việc nhỏ.'};
+}
+function renderFinal(){
+ const score=totalScore(),badge=badgeFor(score),correct=earnedCount();
+ const rows=questions.map(q=>{const r=state.records[q.id]||{selected:[],score:0,firstCorrect:false};return `<tr><td>${q.id}</td><td>${esc(stages[q.stage].title)}</td><td>${esc(optionLabel(q,r.selected))}</td><td>${esc(optionLabel(q,q.correct))}</td><td>${formatNum(r.score)}/${q.points}</td><td class="${r.firstCorrect?'status-ok':'status-no'}">${r.firstCorrect?'Đúng':'Cần xem lại'}</td></tr>`}).join('');
+ screen.innerHTML=`<section class="panel">
+  <div class="result-hero"><div class="eyebrow">Đã hoàn thành 5 chặng</div><div class="big-score">${formatNum(score)}<span style="font-size:1.2rem;font-weight:800">/100</span></div><p>${correct}/18 câu đúng ngay lượt đầu · Điểm nhiều lựa chọn có thể được tính một phần.</p><div class="badge-award">${badge.emoji} ${badge.name}</div><p style="margin-top:12px">${badge.msg}</p></div>
+  <h2 style="margin-top:23px">Bảng tổng kết</h2><div class="summary-strip">${stages.map((s,i)=>`<div class="metric"><strong>${formatNum(stageScore(i))}/${s.points}</strong><span>Chặng ${i+1}</span></div>`).join('')}</div>
+  <div class="callout"><strong>Ghi nhớ:</strong> Huy hiệu là phần động viên của trò chơi, không thay thế đánh giá Đạt/Chưa đạt của giáo viên. Điểm chính thức được tính theo lần trả lời đầu tiên; làm lại câu sai dùng để luyện tập.</div>
+  <h2>Cam kết hành động 7 ngày</h2><div class="print-box" style="border:1px solid var(--line);padding:15px;border-radius:14px;background:#fbfcff"><p><b>Lĩnh vực:</b> ${esc(state.commit.category)}</p><p><b>Việc cụ thể:</b> ${esc(state.commit.action)}</p><p><b>Thời điểm:</b> ${esc(state.commit.when)}</p><p><b>Số lần dự kiến:</b> ${esc(state.commit.times)} lần trong 7 ngày</p><p><b>Kết quả mong đợi:</b> ${esc(state.commit.outcome)}</p>${state.commit.backup?`<p><b>Khi lịch thay đổi:</b> ${esc(state.commit.backup)}</p>`:''}</div>
+  <h2>Chi tiết 18 câu hỏi</h2><div class="table-wrap"><table><thead><tr><th>Câu</th><th>Chặng</th><th>Lựa chọn lượt đầu</th><th>Đáp án đúng</th><th>Điểm</th><th>Kết quả</th></tr></thead><tbody>${rows}</tbody></table></div>
+  <div class="btn-row"><button class="btn btn-primary" id="exportPdfBtn">📄 Xuất PDF / In phiếu</button><button class="btn btn-light" id="reviewWrongBtn">↻ Xem lại câu cần cải thiện</button></div>
+  <p class="smallprint">Khi hộp thoại in xuất hiện, chọn “Save as PDF / Lưu thành PDF” để lưu file và gửi giáo viên qua K12Online hoặc Zalo.</p>
+ </section>`;
+}
+function persistCommitFields(){
+ const cat=document.querySelector('input[name="commitCategory"]:checked');
+ state.commit.category=cat?cat.value:'';
+ state.commit.action=document.getElementById('commitAction')?.value.trim()||'';
+ state.commit.when=document.getElementById('commitWhen')?.value.trim()||'';
+ state.commit.times=document.getElementById('commitTimes')?.value||'';
+ state.commit.outcome=document.getElementById('commitOutcome')?.value.trim()||'';
+ state.commit.backup=document.getElementById('commitBackup')?.value.trim()||'';
+}
+function finishCommit(){
+ persistCommitFields();
+ const missing=[];
+ if(!state.commit.category)missing.push('chọn lĩnh vực hành động');
+ if(!state.commit.action)missing.push('ghi việc làm cụ thể');
+ if(!state.commit.when)missing.push('ghi thời điểm thực hiện');
+ if(!state.commit.times)missing.push('chọn số lần dự kiến');
+ if(!state.commit.outcome)missing.push('ghi kết quả mong đợi');
+ if(missing.length){document.getElementById('commitError').textContent='Em vui lòng '+missing.join('; ')+'.';return;}
+ state.view='final';renderFinal();
+}
+function buildPrintReport(){
+ const score=totalScore(),badge=badgeFor(score),correct=earnedCount();
+ const qrows=questions.map(q=>{const r=state.records[q.id]||{selected:[],score:0,firstCorrect:false};return `<tr><td>${q.id}</td><td>${esc(stages[q.stage].title)}</td><td>${esc(q.title)}</td><td>${esc(optionLabel(q,r.selected))}</td><td>${esc(optionLabel(q,q.correct))}</td><td>${formatNum(r.score)}/${q.points}</td><td>${r.firstCorrect?'Đúng':'Cần xem lại'}</td></tr>`}).join('');
+ document.getElementById('print-report').innerHTML=`<h1>PHIẾU HỌC TẬP TƯƠNG TÁC</h1><p style="text-align:center;font-weight:bold">TIẾT 14 – TÌM HIỂU TRÁCH NHIỆM TRONG TỔ CHỨC CUỘC SỐNG GIA ĐÌNH</p><p style="text-align:center">Hoạt động trải nghiệm, hướng nghiệp 12 · Chủ đề 4: Trách nhiệm với gia đình</p>
+ <div class="print-meta"><p><b>Họ và tên:</b> ${esc(state.name)}</p><p><b>Lớp:</b> ${esc(state.klass)}</p><p><b>Điểm:</b> ${formatNum(score)}/100</p><p><b>Câu đúng ngay lượt đầu:</b> ${correct}/18</p><p><b>Huy hiệu:</b> ${badge.emoji} ${esc(badge.name)}</p><p><b>Giáo viên:</b> Trần Anh Tú Uyên</p></div>
+ <p><b>Nhận xét động viên:</b> ${esc(badge.msg)}</p>
+ <h2>I. KẾT QUẢ THEO 5 CHẶNG</h2><table><thead><tr><th>Chặng</th><th>Nội dung</th><th>Điểm đạt</th><th>Điểm tối đa</th></tr></thead><tbody>${stages.map((s,i)=>`<tr><td>${i+1}</td><td>${esc(s.title)}</td><td>${formatNum(stageScore(i))}</td><td>${s.points}</td></tr>`).join('')}</tbody></table>
+ <h2>II. CHI TIẾT CÂU TRẢ LỜI</h2><table><thead><tr><th>Câu</th><th>Chặng</th><th>Nội dung câu hỏi</th><th>Lựa chọn lượt đầu</th><th>Đáp án đúng</th><th>Điểm</th><th>Kết quả</th></tr></thead><tbody>${qrows}</tbody></table>
+ <h2>III. KẾ HOẠCH CAM KẾT HÀNH ĐỘNG TRONG 7 NGÀY</h2><div class="print-box"><p><b>Lĩnh vực:</b> ${esc(state.commit.category)}</p><p><b>Việc cụ thể em sẽ làm:</b> ${esc(state.commit.action)}</p><p><b>Thời điểm thực hiện:</b> ${esc(state.commit.when)}</p><p><b>Số lần dự kiến:</b> ${esc(state.commit.times)} lần trong 7 ngày</p><p><b>Kết quả mong đợi:</b> ${esc(state.commit.outcome)}</p><p><b>Cách điều chỉnh khi lịch thay đổi:</b> ${esc(state.commit.backup||'Em sẽ trao đổi và điều chỉnh phù hợp với điều kiện thực tế.')}</p></div>
+ <p class="muted"><b>Cam kết của em:</b> Trong 7 ngày tới, em sẽ chủ động thực hiện việc đã lựa chọn, phù hợp khả năng và thời gian của bản thân.</p>
+ <p class="muted"><i>Lưu ý: Đây là kế hoạch hành động dự kiến. Phiếu này không yêu cầu học sinh cung cấp thông tin riêng tư hoặc nhật kí cập nhật sau 7 ngày.</i></p>
+ <div class="print-footer">GV Trần Anh Tú Uyên – THPT Số 2 Quang Trung</div>`;
+}
+function goNextQuestion(){
+ state.selected=[];state.feedback=false;state.practice=false;
+ if(state.returnToFinal){state.reviewedWrong.push(questions[state.qIndex].id);state.returnToFinal=false;state.view='final';renderFinal();return;}
+ const current=questions[state.qIndex];
+ if(state.qIndex<questions.length-1 && questions[state.qIndex+1].stage===current.stage){
+   state.qIndex++;state.view='question';renderQuestion();
+ }else{
+   state.view='stageSummary';renderStageSummary();
+ }
+}
+function reviewWrong(){
+ const wrong=questions.find(q=>state.records[q.id]&&!state.records[q.id].firstCorrect&&!state.reviewedWrong.includes(q.id));
+ if(!wrong){alert('Tuyệt vời! Không có câu nào cần xem lại theo lượt trả lời đầu tiên.');return;}
+ state.qIndex=questions.findIndex(q=>q.id===wrong.id);state.stage=wrong.stage;state.selected=[];state.feedback=false;state.practice=true;state.returnToFinal=true;state.view='question';renderQuestion();
+}
+screen.addEventListener('click',e=>{
+ const opt=e.target.closest('[data-option]');
+ if(opt&&!state.feedback){const val=opt.dataset.option,q=questions[state.qIndex];if(q.type==='multi'){state.selected=state.selected.includes(val)?state.selected.filter(x=>x!==val):[...state.selected,val];}else{state.selected=[val];}renderQuestion();return;}
+ const id=e.target.closest('button')?.id;if(!id)return;
+ if(id==='beginBtn'){
+   const nm=document.getElementById('studentName').value.trim(),cl=document.getElementById('studentClass').value;
+   if(!nm||!cl){document.getElementById('welcomeError').textContent='Em vui lòng nhập họ tên và chọn lớp trước khi bắt đầu.';return;}
+   state.name=nm;state.klass=cl;state.view='stageIntro';renderStageIntro();
+ }else if(id==='startStageBtn'){state.qIndex=questions.findIndex(q=>q.stage===state.stage);state.view='question';state.selected=[];state.feedback=false;state.practice=false;renderQuestion();}
+ else if(id==='checkAnswerBtn')submitAnswer();
+ else if(id==='retryBtn'){state.selected=[];state.feedback=false;state.practice=true;renderQuestion();}
+ else if(id==='nextQuestionBtn')goNextQuestion();
+ else if(id==='nextStageBtn'){if(state.stage<4){state.stage++;state.view='stageIntro';renderStageIntro();}else{state.view='commit';renderCommit();}}
+ else if(id==='finishBtn')finishCommit();
+ else if(id==='exportPdfBtn'){buildPrintReport();window.print();}
+ else if(id==='reviewWrongBtn')reviewWrong();
+});
+screen.addEventListener('change',e=>{
+ if(e.target.name==='commitCategory'){
+   state.commit.category=e.target.value;
+   document.querySelectorAll('.commit-choice').forEach(el=>el.classList.toggle('selected',el.querySelector('input').checked));
+ }
+});
+renderWelcome();
+</script>
+</body>
+</html>
